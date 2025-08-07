@@ -44,11 +44,11 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
+          <a class="button is-primary is-rounded">
+            Mi cuenta
           </a>
-          <a class="button is-light">
-            Log in
+          <a class="button is-link is-rounded ">
+            Salir
           </a>
         </div>
       </div>
