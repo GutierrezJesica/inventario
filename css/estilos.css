@@ -11,7 +11,7 @@ body,html {
     align-items: center;
 }
 
-.main-container >.login {
+.main-container > .login {
     height: auto;
     width: 100%;
     max-width: 400px;
