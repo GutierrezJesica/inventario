@@ -11,14 +11,14 @@
         $_GET['vista']="login";
     }
 
-    if(is_file("./vistas/".$GET_['vista'].".php") && $_GET['vista']
+    if(is_file("./vistas/".$_GET['vista'].".php") && $_GET['vista']
     !="login" && $_GET['vista']!="404") {
 
-    include './inc/navbar.php';
+    include "./inc/navbar.php";
     
-    include './vistas/".$_GET[vista].".php';
+    include "./vistas/".$_GET['vista'].".php";
 
-    include './inc/script.php';
+    include "./inc/script.php";
 
     }else{
         if($_GET['vista']=="login") {
