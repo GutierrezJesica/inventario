@@ -1,4 +1,5 @@
 <div class="main-container">
+    
     <form class="box login" action="" method="POST" autocomplete="off">
         <h5 class="title is-5 has- text-centered is-uppercase">Sistema de Inventario</h5>
         
