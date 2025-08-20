@@ -18,7 +18,8 @@
         <a class="navbar-link">Usuarios</a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">Nuevo</a>
+          <a class="navbar-item" href="index.php?vista=user_new"
+          >Nuevo</a>
           <a class="navbar-item">Lista</a>
           <a class="navbar-item">Buscar</a>
         </div>
