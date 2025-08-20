@@ -59,3 +59,8 @@ function renombrar_fotos($nombre) {
     $nombre = $nombre."_".rand(0,100);
     return $nombre;
 }
+
+# FUNCION PAGINADOR DE TABLAS #
+function paginador_tablas($pagina, $Npaginas, $url, $botones) {
+    
+}
