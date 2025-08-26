@@ -125,7 +125,24 @@ if($clave_1!=$clave_2) {
 
 # GUARDANDO DATOS EN LA TABLA USUARIO DE LA BD#
 
-$guardar_usuario=conexion();
-$guardar_usuario=$guardar_usuario->query("INSERT INTO usuario(usuario_nombre, usuario_apellido, usuario_usuario, usuario_clave, usuario_email)
-VALUES ('$nombre', '$apellido', '$usuario', '$clave', '$email')");
+$guardar_usuario=conexion(); # cerrar esta conexion más abajo #
+$guardar_usuario=$guardar_usuario->query("INSERT INTO usuario(usuario_nombre, usuario_apellido,
+usuario_usuario, usuario_clave, usuario_email) VALUES ('$nombre', '$apellido', '$usuario', '$clave', '$email')");
 
+if($guardar_usuario->rowCount()==1) {
+    echo '
+    <div class="notification is-info is-light">
+    <strong>¡USUARIO REGISTRADO!</strong><br>
+    El usuario se registro con exito.
+    </div>
+    ';
+}else {
+    echo '
+    <div class="notification is-danger is-light">
+    <strong>¡USUARIO NO REGISTRADO!</strong><br>
+    No se pudo registrar el usuario, por favor intente nuevamente.
+    </div>
+    ';
+}
+
+$guardar_usuario=null; # conexion cerrada #
