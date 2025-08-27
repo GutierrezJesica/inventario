@@ -40,7 +40,7 @@ if(verificar_datos("[a-zA-Z0-9]{7,100}", $clave)) {
 }
 
 $check_user=conexion(); # INICIAR CONEXION #
-$check_user=$chack_user->query("SELECT * FROM usuario WHERE usuario_usuario='$usuario'");
+$check_user=$check_user->query("SELECT * FROM usuario WHERE usuario_usuario='$usuario'");
 
 if($check_user->rowCount()==1) {
     $check_user=$check_user->fetch();
@@ -54,9 +54,9 @@ if($check_user->rowCount()==1) {
         $_SESSION['usuario']=$check_user['usuario_usuario'];
 
         if(headers_sent()) {
-
+            echo "<script> window.location.href='index.php?vista=home'; </script>";
         }else {
-            header("location: index.php?vista");
+            header("Location: index.php?vista=home");
         }
     }else {
         echo '
