@@ -17,14 +17,10 @@
 
 # CERRAMIENTO DE SESION FORZADA #
 
-if((!isset($_SESSION['id']) || $_SESSION['id']=="") || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")) {
-    session_destroy();
-
-if(headers_sent()) {
-            echo "<script> window.location.href='index.php?vista=login'; </script>";
-        }else {
-            header("Location: index.php?vista=login");
-        }
+if((!isset($_SESSION['id']) || $_SESSION['id']=="")
+    || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")) {
+    include './vistas/logout.php';
+    exit();
 }
 
     include "./inc/navbar.php";
@@ -36,11 +32,12 @@ if(headers_sent()) {
     }else{
         if($_GET['vista']=="login") {
             include './vistas/login.php';
-        }else {
+        }else{
             include './vistas/404.php';
         }
     }
-    ?>
+
+?>
 
 </body>
 </html>
