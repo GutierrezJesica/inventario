@@ -4,6 +4,7 @@
 <head>
     <?php include './inc/head.php'; ?>
 </head>
+
 <body>
     <?php
 
@@ -13,6 +14,18 @@
 
     if(is_file("./vistas/".$_GET['vista'].".php") && $_GET['vista']
     !="login" && $_GET['vista']!="404") {
+
+# CERRAMIENTO DE SESION FORZADA #
+
+if((!isset($_SESSION['id']) || $_SESSION['id']=="") || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")) {
+    session_destroy();
+
+if(headers_sent()) {
+            echo "<script> window.location.href='index.php?vista=login'; </script>";
+        }else {
+            header("Location: index.php?vista=login");
+        }
+}
 
     include "./inc/navbar.php";
     
