@@ -4,6 +4,7 @@
 <head>
     <?php include './inc/head.php'; ?>
 </head>
+
 <body>
     <?php
 
@@ -14,6 +15,14 @@
     if(is_file("./vistas/".$_GET['vista'].".php") && $_GET['vista']
     !="login" && $_GET['vista']!="404") {
 
+# CERRAMIENTO DE SESION FORZADA #
+
+if((!isset($_SESSION['id']) || $_SESSION['id']=="")
+    || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")) {
+    include './vistas/logout.php';
+    exit();
+}
+
     include "./inc/navbar.php";
     
     include "./vistas/".$_GET['vista'].".php";
@@ -23,11 +32,12 @@
     }else{
         if($_GET['vista']=="login") {
             include './vistas/login.php';
-        }else {
+        }else{
             include './vistas/404.php';
         }
     }
-    ?>
+
+?>
 
 </body>
 </html>
