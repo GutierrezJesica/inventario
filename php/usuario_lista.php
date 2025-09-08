@@ -78,8 +78,7 @@ if($total>=1 && $pagina<=$Npaginas) {
         <tr class="has-text-centered">
                     <td colspan="7">
                         <a href="'.$url.'1" class="button is-link is-rounded is-small mt-4 mb-4">
-                            Haga clic acá para recargar el listado
-                        </a>
+                            Haga clic acá para recargar el listado</a>
                     </td>
                 </tr>
                 ';
@@ -95,3 +94,16 @@ if($total>=1 && $pagina<=$Npaginas) {
 
 $tabla.='</tbody></table></div>';
 
+if($total>=1 && $pagina<=$Npaginas) {
+    $tabla.='
+    <p class="has-text-right">Mostrando usuarios <strong>'.$pag_inicio.'
+    </strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>
+    ';
+}
+
+$conexion=null;
+echo $tabla;
+
+if($total>=1 && $pagina<=$Npaginas) {
+    echo paginador_tablas($pagina,$Npaginas,$url,7);
+}
