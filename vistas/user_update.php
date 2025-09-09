@@ -28,7 +28,7 @@
 
 	<div class="form-rest mb-6 mt-6"></div>
 
-	<form action="" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/usuario_actualizar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 
 		<input type="hidden" value="<?php echo $datos['usuario_id'] ?>" name="usuario_id" required >
 		
