@@ -27,7 +27,7 @@ if($check_usuario->rowCount()==1) {
             ';
         }else {
             echo '
-            <div class="notification is-info is-light">
+            <div class="notification is-danger is-light">
             <strong>¡Ocurrio un error inesperado!</strong><br>
             No se pudo eliminar el usuario, por favor intente nuevamente
             </div>
