@@ -1,9 +1,9 @@
 <?php
 
-$inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
+$inicio=($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 $tabla="";
 
-if(isset($busqueda) && $busqueda=="") {
+if(isset($busqueda) && $busqueda!=="") {
     $consulta_datos="SELECT * FROM usuario WHERE ((usuario_id!='
     ".$_SESSION['id']."') AND (usuario_nombre LIKE '%$busqueda%'
     OR usuario_apellido LIKE '%$busqueda%'
@@ -50,6 +50,7 @@ $tabla.='
             </thead>
             <tbody>
 ';
+
 if($total>=1 && $pagina<=$Npaginas) {
     $contador=$inicio+1;
     $pag_inicio=$inicio+1;
@@ -69,6 +70,7 @@ if($total>=1 && $pagina<=$Npaginas) {
                     </td>
                 </tr>
                 ';
+
     $contador++;
     }
     $pag_final=$contador-1;
@@ -88,13 +90,14 @@ if($total>=1 && $pagina<=$Npaginas) {
                     <td colspan="7">
                         No hay registros en el sistema
                     </td>
-                </tr>';
+                </tr>
+                ';
     }
 }
 
 $tabla.='</tbody></table></div>';
 
-if($total>=1 && $pagina<=$Npaginas) {
+if($total>=0 && $pagina<=$Npaginas) {
     $tabla.='
     <p class="has-text-right">Mostrando usuarios <strong>'.$pag_inicio.'
     </strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>

@@ -71,7 +71,6 @@ function paginador_tablas($pagina, $Npaginas, $url, $botones) {
         <a class="pagination-previous is-disabled" disabled>Anterior</a>
         <ul class="pagination-list">
         ';
-
     }else {
         $tabla.='
         <a class="pagination-previous" href="'.$url.($pagina-1).'">Anterior</a>
@@ -96,7 +95,6 @@ function paginador_tablas($pagina, $Npaginas, $url, $botones) {
             $tabla.='<li><a class="pagination-link"
             href="'.$url.$i.'">'.$i.'</a></li>';
         }
-
         $ci++;
     }
 

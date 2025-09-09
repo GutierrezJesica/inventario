@@ -11,12 +11,12 @@
         require_once "./php/buscador.php";
     }
 
-        if(!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])) {
+    if(!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])) {
     ?>
     <div class="columns">
         <div class="column">
             <form action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="modulo_buscador" value="usuarios">
+                <input type="hidden" name="modulo_buscador" value="usuario">
                 <div class="field is-grouped">
                     <p class="control is-expanded">
                         <input class="input is-rounded" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
@@ -41,10 +41,16 @@
                 </div>
             </div>
         <?php
+
+        # ELIMINAR USUARIO #
+        if(isset($GET['user_id_del'])) {
+            require_once "./php/usuario_eliminar.php";
+        }
+
         if(!isset($_GET['page'])) {
             $pagina=1;
         }else {
-            $pagina=(int)$_GET['page'];
+            $pagina=(int) $_GET['page'];
             if($pagina<=1) {
                 $pagina=1;
             }
@@ -55,6 +61,9 @@
         $registros=10; # REGISTROS POR PÁGINA #
         $busqueda=$_SESSION['busqueda_usuario'];
 
+        # PAGINADOR USUARIO #
         require_once "./php/usuario_lista.php";
-    } ?>
+    }
+?>
+
 </div>

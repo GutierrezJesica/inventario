@@ -17,7 +17,9 @@ if(in_array($modulo_buscador,$modulos)) {
 
     # INICIAR BUSQUEDA #
     if(isset($_POST['txt_buscador'])) {
+        
         $txt=limpiar_cadena($_POST['txt_buscador']);
+        
         if($txt=="") {
             echo '
             <div class="notification is-danger is-light">
@@ -40,16 +42,19 @@ if(in_array($modulo_buscador,$modulos)) {
             }
         }
     }
+
     # ELIMINAR BUSQUEDA #
     if(isset($_POST['eliminar_buscador'])) {
-
+        unset($_SESSION[$modulo_buscador]);
+		header("Location: index.php?vista=$modulos_url",true,303);
+        exit();
     }
-}else {
-    echo '
-    <div class="notification is-danger is-light">
-    <strong>¡Ocurrio un error inesperado!</strong><br>
-    No se pudo realizar la petición
-    </div>
-    ';
-    exit();
-}
+    }else {
+        echo '
+        <div class="notification is-danger is-light">
+        <strong>¡Ocurrio un error inesperado!</strong><br>
+        No se pudo realizar la petición
+        </div>
+        ';
+        exit();
+    }

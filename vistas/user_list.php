@@ -8,6 +8,11 @@
     <?php # INCORPORACIÓN DE ARCHIVOS PRINCIPALES PARA CARGAR LA LISTA DE USARIOS #
         require_once "./php/main.php";
 
+        # ELIMINAR USUARIO #
+        if(isset($_GET['user_id_del'])) {
+            require_once ".php/usuario_eliminar.php";
+        }
+
         if(!isset($_GET['page'])) {
             $pagina=1;
         }else {
@@ -22,6 +27,8 @@
         $registros=10; # REGISTROS POR PÁGINA #
         $busqueda="";
 
+        # PAGINADOR USUARIO #
         require_once "./php/usuario_lista.php";
     ?>
+    
 </div>
