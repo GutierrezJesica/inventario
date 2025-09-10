@@ -123,7 +123,7 @@ if($clave_1!=$clave_2) {
     $clave=password_hash($clave_1, PASSWORD_BCRYPT, ["cost"=>10]); # Encriptando la clave #
 }
 
-# GUARDANDO DATOS EN LA TABLA USUARIO DE LA BD#
+# GUARDANDO DATOS EN LA TABLA USUARIO DE LA BD #
 
 $guardar_usuario=conexion(); # cerrar esta conexion más abajo #
 $guardar_usuario=$guardar_usuario->query("INSERT INTO usuario(usuario_nombre, usuario_apellido,
